@@ -1,0 +1,24 @@
+name: demo-smoke (weekly, live W&B)
+
+on:
+  schedule:
+    - cron: "0 14 * * 1"   # Mondays 14:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    if: ${{ secrets.WANDB_API_KEY != '' }}
+    env:
+      WANDB_API_KEY: ${{ secrets.WANDB_API_KEY }}
+      MCP_WANDB_SMOKE_PROJECT: ${{ secrets.MCP_WANDB_SMOKE_PROJECT }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v3
+      - run: uv python install 3.11
+      - run: uv sync --extra dev --extra shap
+      - name: Run live demo path
+        run: uv run pytest -m live -q

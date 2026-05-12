@@ -1,0 +1,54 @@
+site_name: mcp-wandb
+site_description: An MCP server for Weights & Biases that adds analytical tools on top of the official server.
+
+repo_url: https://github.com/your-org/mcp-wandb
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.top
+    - search.suggest
+    - content.code.copy
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      toggle:
+        icon: material/weather-night
+        name: Dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Light mode
+
+nav:
+  - Home: index.md
+  - Quickstart: quickstart.md
+  - Tools reference: tools.md
+  - Auth: auth.md
+  - Hosted deployment: hosted.md
+  - Relationship to the official server: relationship-to-official.md
+  - Examples:
+      - Explore a project: examples/01_explore.md
+      - Compare a sweep against baseline: examples/02_compare_runs.md
+      - Launch a refined sweep: examples/03_launch_sweep.md
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.snippets:
+      base_path: [., docs]
+  - pymdownx.superfences
+
+plugins:
+  - search

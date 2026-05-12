@@ -1,0 +1,1 @@
+--8<-- "examples/02_compare_runs.md"
