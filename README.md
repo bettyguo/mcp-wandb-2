@@ -120,8 +120,6 @@ uv run ruff check .
 uv run mypy src
 ```
 
-Issues and PRs welcome. See [CONTRIBUTING.md](CONTRIBUTING.md).
-
 ## License
 
 Apache 2.0. See [LICENSE](LICENSE).
